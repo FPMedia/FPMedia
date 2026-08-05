@@ -26,6 +26,11 @@ jobs:
       - name: Update README and art
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: a classic PAT with 'repo' scope, stored as a repo secret
+          # named PROFILE_STATS_TOKEN, to include private repos in the
+          # aggregate (language/LOC/art) sections. Safe to leave unset - the
+          # script falls back to public-repos-only automatically.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
         run: python scripts/update_readme.py
 
       - name: Commit and push if changed

@@ -2,19 +2,35 @@
 """Generate the dynamic sections of README.md from the GitHub REST API.
 
 Sections produced (each lives between its own marker comment pair in README.md):
-  1. commits    - last 5 commits across all public repos
-  2. languages  - aggregate language byte breakdown across all public repos
-  3. loc        - total lines changed (additions + deletions) since Jan 1 of the current year
-  4. art        - a small deterministic SVG generated from the last 30 days of commit activity
+  1. commits    - last 5 commits across all PUBLIC repos only (see privacy note below)
+  2. languages  - aggregate language byte breakdown across public + private repos
+  3. loc        - total lines changed (additions + deletions) since Jan 1 of the current year,
+                  across public + private repos
+  4. art        - a small deterministic SVG generated from the last 30 days of commit activity,
+                  across public + private repos
 
-Auth: uses the workflow's GITHUB_TOKEN (read-only access is enough - all data
-read here is public). No personal access token or extra scopes are required.
+Auth: with just the workflow's default GITHUB_TOKEN, only public repos are
+visible (GITHUB_TOKEN can't list or read someone's other repos). To include
+private repos in the aggregate sections, set the PROFILE_TOKEN env var to a
+Personal Access Token belonging to the account, with the classic 'repo' scope
+(fine-grained: Contents + Metadata read on all repos). Store it as a repo
+secret (e.g. PROFILE_STATS_TOKEN) and pass it through in the workflow - see
+update-readme.yml. If PROFILE_TOKEN isn't set, everything falls back to the
+public-only behavior automatically.
+
+Privacy note: "Latest commits" always filters to public-repo events only
+(GitHub tags each event with a `public` flag), even when PROFILE_TOKEN grants
+private access - repo names and commit messages from private repos are never
+written into this public README. The other three sections only ever surface
+aggregate numbers (percentages, a total, bar heights) with no repo names or
+messages, so private-repo data contributing to them doesn't leak identifying
+details.
 
 Design notes / known limitations (documented rather than hidden):
-  - "Latest commits" and the art data both come from the public events API
-    (/users/{owner}/events/public), which GitHub only retains for ~90 days /
-    the most recent 300 events. That's plenty for "last 5 commits" and
-    "last 30 days", but it's not a complete history.
+  - "Latest commits" and the art data both come from the events API
+    (/users/{owner}/events or /users/{owner}/events/public), which GitHub only
+    retains for ~90 days / the most recent 300 events. That's plenty for
+    "last 5 commits" and "last 30 days", but it's not a complete history.
   - "Lines of code this year" walks each repo's commit list since Jan 1 and
     fetches per-commit stats. That's one API call per commit, which is capped
     per repo (MAX_COMMITS_PER_REPO_FOR_STATS) so a single very active repo
@@ -135,12 +151,20 @@ def get_owner():
     raise SystemExit("Could not determine repo owner from GITHUB_REPOSITORY env var")
 
 
-def fetch_public_repos(gh, owner):
-    repos = list(gh.paginate(
-        f"{API_ROOT}/users/{owner}/repos",
-        params={"type": "owner", "sort": "pushed"},
-    ))
-    # Only the account owner's own (non-fork) public repos count toward these stats.
+def fetch_repos(gh, owner, include_private):
+    if include_private:
+        # Authenticated "repos for the current user" endpoint - includes private
+        # repos, but only ones PROFILE_TOKEN's owner actually owns/can see.
+        repos = list(gh.paginate(
+            f"{API_ROOT}/user/repos",
+            params={"affiliation": "owner", "visibility": "all", "sort": "pushed"},
+        ))
+    else:
+        repos = list(gh.paginate(
+            f"{API_ROOT}/users/{owner}/repos",
+            params={"type": "owner", "sort": "pushed"},
+        ))
+    # Only the account owner's own (non-fork) repos count toward these stats.
     return [r for r in repos if not r.get("fork") and not r.get("archived")]
 
 
@@ -166,18 +190,29 @@ def relative_time(dt):
     return f"{years} year{'s' if years != 1 else ''} ago"
 
 
-def fetch_push_events(gh, owner, max_pages=EVENTS_PAGES_TO_SCAN):
-    """Public PushEvents for the user, newest first (as returned by the API)."""
+def fetch_push_events(gh, owner, include_private, max_pages=EVENTS_PAGES_TO_SCAN):
+    """PushEvents for the user, newest first (as returned by the API).
+
+    With include_private, uses the authenticated /events endpoint, which
+    includes private-repo events when the token belongs to `owner`. Each
+    event still carries a `public` flag callers can filter on.
+    """
+    path = "events" if include_private else "events/public"
     events = list(gh.paginate(
-        f"{API_ROOT}/users/{owner}/events/public",
+        f"{API_ROOT}/users/{owner}/{path}",
         max_pages=max_pages,
     ))
     return [e for e in events if e.get("type") == "PushEvent"]
 
 
 def build_commits_section(push_events):
+    # Privacy: regardless of whether push_events includes private-repo activity
+    # (see fetch_push_events), never surface private repo names or commit
+    # messages in this publicly-visible section.
     commits = []
     for event in push_events:
+        if not event.get("public", True):
+            continue
         repo_name = event.get("repo", {}).get("name", "")
         created_at = event.get("created_at")
         try:
@@ -350,19 +385,23 @@ def replace_section(readme_text, marker, new_content):
 
 
 def main():
-    token = os.environ.get("GITHUB_TOKEN", "")
+    profile_token = os.environ.get("PROFILE_TOKEN", "")
+    token = profile_token or os.environ.get("GITHUB_TOKEN", "")
+    include_private = bool(profile_token)
+
     if not token:
-        log("WARNING: GITHUB_TOKEN not set; API calls will be unauthenticated and heavily rate limited")
+        log("WARNING: no token set; API calls will be unauthenticated and heavily rate limited")
+    log(f"Private-repo aggregation: {'ON (PROFILE_TOKEN set)' if include_private else 'OFF (public repos only)'}")
 
     owner = get_owner()
     gh = GitHubClient(token)
 
-    log(f"Fetching public repos for {owner}...")
-    repos = fetch_public_repos(gh, owner)
-    log(f"Found {len(repos)} public, non-fork repos")
+    log(f"Fetching repos for {owner}...")
+    repos = fetch_repos(gh, owner, include_private)
+    log(f"Found {len(repos)} non-fork repos ({'public + private' if include_private else 'public only'})")
 
-    log("Fetching public push events...")
-    push_events = fetch_push_events(gh, owner)
+    log("Fetching push events...")
+    push_events = fetch_push_events(gh, owner, include_private)
 
     readme_text = README_PATH.read_text(encoding="utf-8")
 
