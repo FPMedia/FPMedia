@@ -1,16 +1,23 @@
 ## Hi there 👋
 
-<!--
-**FPMedia/FPMedia** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🕒 Latest commits
+<!--START_SECTION:commits-->
+_Not generated yet - runs on the next scheduled update or workflow_dispatch._
+<!--END_SECTION:commits-->
 
-Here are some ideas to get you started:
+### 💻 Language breakdown
+<!--START_SECTION:languages-->
+_Not generated yet - runs on the next scheduled update or workflow_dispatch._
+<!--END_SECTION:languages-->
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 📈 Lines of code this year
+<!--START_SECTION:loc-->
+_Not generated yet - runs on the next scheduled update or workflow_dispatch._
+<!--END_SECTION:loc-->
+
+### 🎨 Commit activity, last 30 days
+<!--START_SECTION:art-->
+_Not generated yet - runs on the next scheduled update or workflow_dispatch._
+<!--END_SECTION:art-->
+
+<sub>This README is auto-updated daily by [`.github/workflows/update-readme.yml`](.github/workflows/update-readme.yml).</sub>
