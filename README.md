@@ -7,12 +7,12 @@ _No recent public commit activity found._
 
 ### 💻 Language breakdown
 <!--START_SECTION:languages-->
-TypeScript 53.5% | Jupyter Notebook 17.1% | Python 11.5% | HTML 11.0% | JavaScript 3.3% | PLpgSQL 1.4% | Other 2.1%
+TypeScript 53.7% | Jupyter Notebook 17.1% | Python 11.5% | HTML 11.0% | JavaScript 3.3% | PLpgSQL 1.4% | Other 2.1%
 <!--END_SECTION:languages-->
 
 ### 📈 Lines of code this year
 <!--START_SECTION:loc-->
-**12,936** lines changed in 2026
+**12,998** lines changed in 2026
 <!--END_SECTION:loc-->
 
 ### 🎨 Commit activity, last 30 days
