@@ -73,7 +73,7 @@ _As of 3 October 2026, counting public and private repos._
 | Days with activity, last 12 months | 219 |
 | Repos on Next.js, last 12 months | 42 (30 on Next.js 16) |
 
-**Main language of the 84 repos I worked on this year:** TypeScript 43 · JavaScript 11 · Python 11 · HTML 5 · PHP 2 · CSS 2 · C#, Kotlin and Shell 1 each
+**Main language of the 81 non-fork repos I worked on in the last 12 months:** TypeScript 43 · JavaScript 11 · Python 11 · HTML 5 · PHP 2 · CSS 2 · C#, Kotlin and Shell 1 each
 
 **Code by size, same repos:** JavaScript 47.3% · TypeScript 30.5% · PHP 9.0% · C# 3.4% · Python 2.4% · HTML 2.3% · other 5.1%. JavaScript is inflated by one large bundled project.
 
