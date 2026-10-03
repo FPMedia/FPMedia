@@ -1,0 +1,28 @@
+{
+  "as_of": "2026-10-03",
+  "repos_total": 175,
+  "repos_private": 142,
+  "repos_public": 33,
+  "active_90d": 38,
+  "active_12m": 84,
+  "new_12m": 67,
+  "contributions_12m": 1253,
+  "private_contributions_12m": 1230,
+  "commits_default_branch_12m": 1093,
+  "active_days_12m": 219,
+  "nextjs_repos_12m": 42,
+  "nextjs16_repos_12m": 30,
+  "main_language_12m": {
+    "TypeScript": 43,
+    "JavaScript": 11,
+    "Python": 11,
+    "HTML": 5,
+    "None": 3,
+    "PHP": 2,
+    "CSS": 2,
+    "Blade": 1,
+    "C#": 1,
+    "Shell": 1,
+    "Kotlin": 1
+  }
+}
