@@ -131,7 +131,7 @@ function languagesTile(th, langs, W = 830) {
   const withLang = items.reduce((a, [, v]) => a + v, 0);
   let body = "";
   const label = `Main language · ${total} repos worked on in the last 12 months`;
-  const labelLines = measure("mono", label, 23) <= W - P * 2 ? [label] : [`Main language · ${total} repos`, "worked on in the last 12 months"];
+  const labelLines = measure("mono", label, 23) <= W - P * 2 ? [label] : ["Main language", `${total} repos, last 12 months`];
   labelLines.forEach((l, i) => { body += `<path fill="${th.label}" d="${textPath("mono", l, 23, P, 50 + i * 32)}"/>`; });
   const barY = 72 + (labelLines.length - 1) * 32;
   const bw = W - P * 2, gap = 4; let x = P;
@@ -143,9 +143,19 @@ function languagesTile(th, langs, W = 830) {
   // Legend: one row if it fits, otherwise a tidy grid (ceil(n/2) columns on desktop, 2 on the narrow variant).
   const widths = items.map(([n, v]) => 32 + measure("label", `${n} ${v}`, 24));
   const oneRow = widths.reduce((a, b) => a + b, 0) + 24 * (items.length - 1) <= W - P * 2;
-  const cols = oneRow ? items.length : W >= 600 ? Math.ceil(items.length / 2) : 2, colW = (W - P * 2) / cols;
   const top0 = barY + 78;
   let ly = top0;
+  if (W < 600) {
+    // Narrow variant: a single-column list with counts right-aligned.
+    items.forEach(([name, v], i) => {
+      ly = top0 + i * 40;
+      body += `<rect x="${P}" y="${ly - 20}" width="22" height="22" rx="4" fill="${th.bars[i % th.bars.length]}"/>`;
+      body += `<path fill="${th.number}" d="${textPath("label", name, 24, P + 32, ly)}${textPath("label", String(v), 24, W - P, ly, { anchor: "end" })}"/>`;
+    });
+    const H = ly + 34;
+    return { svg: svg(W, H, card(W, H, th) + body), items, total };
+  }
+  const cols = oneRow ? items.length : Math.ceil(items.length / 2), colW = (W - P * 2) / cols;
   items.forEach(([name, v], i) => {
     const c = i % cols, row = Math.floor(i / cols);
     const lx = oneRow ? P + widths.slice(0, i).reduce((a, b) => a + b + 24, 0) : P + c * colW;
