@@ -26,7 +26,7 @@ Most of my work lives in private client repos, so this page sums it up without n
 - Firebase Auth sign-up, email verification, invites and role-based access
 - Security reviews and hardening, with dependencies kept patched
 - Next.js security upgrades rolled out across 17 repos
-- CSP and security headers on every site
+- CSP and security headers set at build time
 
 **Contact forms, email and bot protection**
 - Serverless contact endpoints on Cloudflare with Turnstile, validation, a honeypot, rate limiting and Resend email
