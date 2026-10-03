@@ -50,14 +50,6 @@ Most of my work lives in private client repos, so this page sums it up without n
 - A deal-watching scraper that sends Telegram alerts, a job-search helper, and a WordPress-to-Next.js content exporter
 - Open tools: [transcriber](https://github.com/FPMedia/transcriber) (Whisper), [video-optimiser](https://github.com/FPMedia/video-optimiser) and [media-downloader](https://github.com/FPMedia/media-downloader)
 
-<!--
-## Selected work
-
-- [nicole-barlow.com](https://nicole-barlow.com)
-- [sewmuchbetter.co.za](https://sewmuchbetter.co.za)
-- [mabiliskills.com](https://mabiliskills.com)
-- [growthpredictor.world](https://growthpredictor.world)
--->
 
 ## By the numbers
 
