@@ -1,6 +1,6 @@
 # Hi, I'm Henry 👋
 
-I'm the Technical Director at [Erzo](https://erzo.co.za), which started in Johannesburg in 2010, and I work as a Fractional CTO for businesses that need senior technical leadership without a full-time hire. I'm based between Cape Town, Johannesburg and Durban.
+I'm the Technical Director at [Erzo](https://erzo.co.za), which started in Johannesburg in 2010, and I work as a Fractional CTO for businesses that need senior technical leadership without a full-time hire. I'm based between Cape Town, Johannesburg and Durban, working with clients in South Africa and the UK.
 
 Most of my work lives in private client repos, so this page sums it up without naming names.
 
@@ -16,20 +16,17 @@ Most of my work lives in private client repos, so this page sums it up without n
 - Photo galleries with lightbox and focal-point cropping, AVIF/WebP images, Open Graph, sitemaps and PWA support
 - Accessibility built in: WCAG 2.2 AA checks with axe, keyboard and focus handling, and contrast fixes
 
-**SaaS platforms built as microservices**
-- A multi-service business-scoring and leadership-assessment SaaS: Next.js web and admin apps, an API gateway, NestJS services for identity, questionnaires, submissions and report compilation, and a Python (FastAPI) scoring service
-- Shared JSON Schema contracts that generate both TypeScript types and Pydantic models
-- Event-driven report compilation that rolls individual answers up into team and company reports, with interactive charts, roadmap notes and a content CMS for report copy
+**SaaS platforms**
+- A multi-service business-assessment SaaS (Next.js, NestJS, FastAPI)
 - A subscriber portal with seat management and Stripe subscriptions
 - A marketplace that matches homeowners with service professionals, with Paystack billing and an admin console
 - B2B ordering with generated PDF documents, an onboarding portal with admin invites, a PWA checklist app with photo capture, and an events app with group chat and live unread counts
 
-**Auth and security hardening**
-- Firebase Auth flows: sign-up, email verification, invites, account activation, roles and tenant boundaries
-- Service-to-service authentication between internal APIs, with rejected calls logged (never the secret values)
-- Security reviews and hardening: role and tenant checks, XSS sanitising, safer header handling and patched dependencies
-- Next.js security upgrades rolled out across 17 repos, onto 15.5 and 16.3
-- CSP and security headers generated at build time, and deploys that never seed production data
+**Auth and security**
+- Firebase Auth sign-up, email verification, invites and role-based access
+- Security reviews and hardening, with dependencies kept patched
+- Next.js security upgrades rolled out across 17 repos
+- CSP and security headers set at build time
 
 **Contact forms, email and bot protection**
 - Serverless contact endpoints on Cloudflare with Turnstile, validation, a honeypot, rate limiting and Resend email
