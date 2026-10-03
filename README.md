@@ -4,7 +4,7 @@ I'm the Technical Director at [Erzo](https://erzo.co.za), which started in Johan
 
 Most of my work lives in private client repos, so this page sums it up without naming names.
 
-**Get in touch:** [LinkedIn](https://www.linkedin.com/in/henry-shepherdson/) or the [Erzo contact page](https://erzo.co.za/contact).
+**Get in touch:** [LinkedIn](https://www.linkedin.com/in/henry-shepherdson/) the [Erzo contact page](https://erzo.co.za/contact), or [book an Ideas session](https://erzo.co.za/ideas).
 
 ## What I've been building
 
@@ -14,6 +14,7 @@ Most of my work lives in private client repos, so this page sums it up without n
 - A course catalogue with bundles, monthly payment terms, currency-aware pricing, wishlists and filters
 - Room availability and booking-request forms for accommodation sites
 - Photo galleries with lightbox and focal-point cropping, AVIF/WebP images, Open Graph, sitemaps and PWA support
+- Accessibility built in: WCAG 2.2 AA checks with axe, keyboard and focus handling, and contrast fixes
 
 **SaaS platforms built as microservices**
 - A multi-service business-scoring and leadership-assessment SaaS: Next.js web and admin apps, an API gateway, NestJS services for identity, questionnaires, submissions and report compilation, and a Python (FastAPI) scoring service
@@ -45,11 +46,10 @@ Most of my work lives in private client repos, so this page sums it up without n
 - A WinUI 3 desktop dashboard (MSIX) for running the studio: clients, projects, Toggl time tracking with timers, and WSL and Windows Terminal launchers
 
 **AI and automation**
-- I build day to day with Cursor and AI coding agents; 15 merged PRs in the last six months came from agent branches
+- I build day to day with Cursor and AI coding agents
 - An AI Telegram assistant (OpenAI, Whisper) that handles text, voice and documents
-- A deal-watching scraper that sends Telegram alerts, a job-search helper, and a WordPress-to-Next.js content exporter
-- Open tools: [transcriber](https://github.com/FPMedia/transcriber) (Whisper), [video-optimiser](https://github.com/FPMedia/video-optimiser) and [media-downloader](https://github.com/FPMedia/media-downloader)
-
+- A WordPress-to-Next.js content exporter
+- Open tools: [transcriber](https://github.com/FPMedia/transcriber) (Whisper) and [video-optimiser](https://github.com/FPMedia/video-optimiser)
 
 ## By the numbers
 
@@ -66,8 +66,6 @@ _As of 3 October 2026, counting public and private repos._
 | Repos on Next.js, last 12 months | 42 (30 on Next.js 16) |
 
 **Main language of the 81 non-fork repos I worked on in the last 12 months:** TypeScript 43 · JavaScript 11 · Python 11 · HTML 5 · PHP 2 · CSS 2 · C#, Kotlin and Shell 1 each
-
-**Code by size, same repos:** JavaScript 47.3% · TypeScript 30.5% · PHP 9.0% · C# 3.4% · Python 2.4% · HTML 2.3% · other 5.1%. JavaScript is inflated by one large bundled project.
 
 ## Stack
 
