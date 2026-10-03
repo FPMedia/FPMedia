@@ -21,7 +21,7 @@ const OUT = join(ROOT, "assets", "stats");
 const README = join(ROOT, "README.md");
 const GLYPHS = JSON.parse(readFileSync(join(ROOT, "scripts", "glyphs.json"), "utf8")).faces;
 
-// Erzo tokens (erzo-site-2026, app/globals.css)
+// Erzo brand tokens (taken from the Erzo website's CSS custom properties)
 const T = { paper: "#F7F2ED", tile: "#EDE5DF", ink: "#1E1616", cocoa: "#472F2F", mauve: "#816969", mauveText: "#6B5555", mauveLight: "#C7B4B0", apricot: "#F2A76E", clay: "#A4492A" };
 const THEMES = {
   light: { bg: T.tile, border: null, label: T.mauveText, number: T.ink, sub: T.cocoa, accent: T.apricot, bars: [T.ink, T.clay, T.mauve, T.apricot, T.mauveLight] },
