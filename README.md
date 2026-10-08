@@ -1,6 +1,6 @@
 <p><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/banner-narrow-dark.svg"><source media="(max-width: 600px)" srcset="assets/banner-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg"><img src="assets/banner-light.svg" width="100%" alt="Henry Shepherdson, Fractional CTO / Technical Director at Erzo since 2010. A photo of Henry, with a handwritten note and arrow pointing at it: “that’s me, the person you’ll actually talk to”."></picture></p>
 
-I'm the Technical Director at [Erzo](https://erzo.co.za), which started in Johannesburg in 2010, and I work as a Fractional CTO for businesses that need senior technical leadership without a full-time hire. I'm based between Cape Town, Johannesburg and Durban, working with clients in South Africa and the UK.
+I'm the Technical Director at [Erzo](https://erzo.co.za), which started in Johannesburg in 2010, and I work as a Fractional CTO for businesses that need senior technical leadership without a full-time hire. I'm based between Cape Town, Johannesburg and Durban, working with clients in South Africa, the UK and the US.
 
 Most of my work lives in private client repos, so this page sums it up without naming names.
 
@@ -11,7 +11,7 @@ Most of my work lives in private client repos, so this page sums it up without n
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/saas-dark.svg"><img src="assets/build/saas-light.svg" width="400" alt="SaaS platforms: a multi-service business-assessment SaaS, portals and a marketplace"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/security-dark.svg"><img src="assets/build/security-light.svg" width="400" alt="Auth and security: Firebase Auth, role-based access, security reviews and patched dependencies"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/forms-dark.svg"><img src="assets/build/forms-light.svg" width="400" alt="Forms and email: contact forms with Turnstile, rate limiting and Resend email"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/ereaders-dark.svg"><img src="assets/build/ereaders-light.svg" width="400" alt="E-readers and publishing: a branded Readium web e-reader, plus an Android PDF reader"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/ereaders-dark.svg"><img src="assets/build/ereaders-light.svg" width="400" alt="E-readers and publishing: a branded Readium web e-reader and an Android PDF app"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/windows-dark.svg"><img src="assets/build/windows-light.svg" width="400" alt="Windows apps: WinUI 3 desktop tools I use to run the studio day to day"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/ai-dark.svg"><img src="assets/build/ai-light.svg" width="400" alt="AI and automation: Cursor and AI agents every day, plus AI assistants and exporters"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/build/accessibility-dark.svg"><img src="assets/build/accessibility-light.svg" width="400" alt="Accessibility: WCAG 2.2 AA checks with axe, keyboard and focus handling, contrast fixes"></picture>
@@ -85,8 +85,6 @@ Most of my work lives in private client repos, so this page sums it up without n
 - **Hosting:** Railway and Cloudflare, with Docker and GitHub Actions
 - **Email:** Resend
 - **How I work:** Cursor and AI agents, with changes going through pull requests
-
-## Say hello
 
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/signature-henry-dark.svg"><img src="assets/signature-henry-light.svg" width="180" alt="Henry (handwritten signature)"></picture></p>
 
