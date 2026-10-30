@@ -1,21 +1,21 @@
 {
-  "as_of": "2026-10-16",
-  "repos_total": 177,
-  "repos_private": 144,
+  "as_of": "2026-10-30",
+  "repos_total": 182,
+  "repos_private": 149,
   "repos_public": 33,
-  "active_90d": 63,
-  "active_12m": 88,
-  "new_12m": 68,
-  "contributions_12m": 1620,
-  "private_contributions_12m": 1580,
-  "commits_default_branch_12m": 1319,
-  "active_days_12m": 224,
-  "nextjs_repos_12m": 45,
+  "active_90d": 75,
+  "active_12m": 92,
+  "new_12m": 71,
+  "contributions_12m": 1900,
+  "private_contributions_12m": 1858,
+  "commits_default_branch_12m": 1457,
+  "active_days_12m": 226,
+  "nextjs_repos_12m": 48,
   "nextjs16_repos_12m": 31,
   "main_language_12m": {
-    "TypeScript": 44,
+    "TypeScript": 48,
     "JavaScript": 14,
-    "Python": 10,
+    "Python": 9,
     "HTML": 6,
     "None": 3,
     "PHP": 2,
@@ -23,6 +23,7 @@
     "Blade": 1,
     "C#": 1,
     "Shell": 1,
-    "Kotlin": 1
+    "Kotlin": 1,
+    "Astro": 1
   }
 }
